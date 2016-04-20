@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace POS
@@ -16,10 +9,10 @@ namespace POS
         {
             InitializeComponent();
             DataGridViewRowCollection rows = dataGridViewMenu.Rows;
-            rows.Add(new Object[] {"紅茶",25 });
-            rows.Add(new Object[] { "綠茶", 25 });
-            rows.Add(new Object[] { "奶茶", 30 });
-            rows.Add(new Object[] { "珍珠奶茶", 35 });
+            rows.Add("紅茶", 25);
+            rows.Add("綠茶", 25);
+            rows.Add("奶茶", 30);
+            rows.Add("珍珠奶茶", 35);
 
         }
 
@@ -40,9 +33,9 @@ namespace POS
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            subtotal();
-            dataGridViewOrder.Rows.Add(new Object[] { name, price, number, sum });
-            calculate();
+            Subtotal();
+            dataGridViewOrder.Rows.Add(name, price, number, sum);
+            Calculate();
         }
 
         string name;
@@ -50,7 +43,7 @@ namespace POS
         double number;
         double sum;
 
-        private void subtotal() {
+        private void Subtotal() {
              name = buttonName.Text;
              price = double.Parse(textBoxPrice.Text);
              number = (double)numericUpDownNumber.Value;
@@ -61,14 +54,14 @@ namespace POS
 
         private void numericUpDownNumber_ValueChanged(object sender, EventArgs e)
         {
-            subtotal(); 
+            Subtotal(); 
         }
 
-        private void calculate() {
-            double sum = 0.0;
+        private void Calculate() {
+            var sum = 0.0;
 
             for (int i = 0; i < dataGridViewOrder.Rows.Count; i++) {
-                DataGridViewRow row = dataGridViewOrder.Rows[i];
+                var row = dataGridViewOrder.Rows[i];
                 if(row.Cells[0].Value!= null)
                 {
                     sum = sum + (double)row.Cells[3].Value;
