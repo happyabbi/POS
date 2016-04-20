@@ -37,21 +37,21 @@ namespace POS
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             Subtotal();
-            dataGridViewOrder.Rows.Add(name, price, number, sum);
+            dataGridViewOrder.Rows.Add(_name, _price, _number, _sum);
             Calculate();
         }
 
-        string name;
-        double price;
-        double number;
-        double sum;
+        string _name;
+        double _price;
+        double _number;
+        double _sum;
 
         private void Subtotal() {
-             name = buttonName.Text;
-             price = double.Parse(textBoxPrice.Text);
-             number = (double)numericUpDownNumber.Value;
-             sum = price * number;
-            textBoxTotal.Text = sum.ToString();
+             _name = buttonName.Text;
+             _price = double.Parse(textBoxPrice.Text);
+             _number = (double)numericUpDownNumber.Value;
+             _sum = _price * _number;
+            textBoxTotal.Text = _sum.ToString();
 
         }
 
