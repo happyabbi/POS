@@ -13,6 +13,8 @@ namespace POS
             rows.Add("綠茶", 25);
             rows.Add("奶茶", 30);
             rows.Add("珍珠奶茶", 35);
+            rows.Add("綠奶茶", 35);
+
             rows.Add("玉泉奶茶", 35);
 
         }
