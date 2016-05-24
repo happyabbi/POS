@@ -41,7 +41,7 @@ namespace POS
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             Subtotal();
-            dataGridViewOrder.Rows.Add(name, price, number, sum);
+            dataGridViewOrder.Rows.Add(_name, _price, _number, _sum);
             Calculate();
         }
 
